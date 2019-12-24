@@ -32,7 +32,7 @@ namespace PeopleHUB_API
         public void ConfigureServices(IServiceCollection services)
         {
             
-            services.AddDbContext<DataContext>(options => options.UseSqlServer("Server=USBLRAASTAGI1;Database=PeopleHub;Trusted_Connection=True;"));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(SQLConnectionString));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
