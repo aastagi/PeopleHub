@@ -4,7 +4,14 @@ using System.Text;
 
 namespace Data.Models
 {
-    class ProductImage
+    public class ProductImage
     {
+        public int ProductImageId { get; set; }
+        public int ProductId { get; set; }
+        public string ImageOriginalName { get; set; }
+        public string GeneratedFileName { get; set; }
+        public int IsActive { get; set; }
+        public DateTime CreateDate { get; set; }
+        public Product Product { get; set; }
     }
 }

@@ -13,7 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using AutoMapper;
+using PeopleHUB_API.Mapping;
+using Repository;
 
 namespace PeopleHUB_API
 {
@@ -31,7 +33,10 @@ namespace PeopleHUB_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddAutoMapper(typeof(Startup));
+        
             services.AddDbContext<DataContext>(options => options.UseSqlServer(SQLConnectionString));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

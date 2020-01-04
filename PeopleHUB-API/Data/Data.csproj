@@ -5,6 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191223073812_Test.cs" />
+    <Compile Remove="Migrations\20191223073812_Test.Designer.cs" />
+    <Compile Remove="Migrations\20191224060356_EmployeeTableAdded.cs" />
+    <Compile Remove="Migrations\20191224060356_EmployeeTableAdded.Designer.cs" />
+    <Compile Remove="Migrations\20191224061051_AddEmployee.cs" />
+    <Compile Remove="Migrations\20191224061051_AddEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20200104021302_creationOfIntialTables.cs" />
+    <Compile Remove="Migrations\20200104021302_creationOfIntialTables.Designer.cs" />
+    <Compile Remove="Migrations\20200104023029_CreationOfIntialTables.cs" />
+    <Compile Remove="Migrations\20200104023029_CreationOfIntialTables.Designer.cs" />
+    <Compile Remove="Migrations\20200104053455_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200104053455_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200104061924_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200104061924_InitialMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.2">

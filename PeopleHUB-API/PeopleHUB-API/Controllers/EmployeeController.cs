@@ -6,7 +6,11 @@ using Data;
 using Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PeopleHUB_API.Services;
+using Repository;
+using AutoMapper;
+using PeopleHUB_API.Resources;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace PeopleHUB_API.Controllers
 {
@@ -14,35 +18,48 @@ namespace PeopleHUB_API.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private EmployeeService employeeService = new EmployeeService();
-        //public EmployeeController(EmployeeService employeeService)
-        //{
-        //    this.employeeService = employeeService; 
-        //}
 
-        [HttpPost, Route("addEmployee")]
-        public ActionResult AddEmployee(Employee emp)
+        private readonly IEmployeeRepository employeeRepository;
+        private readonly IMapper mapper;
+        public EmployeeController(IEmployeeRepository employeeRepository,IMapper mapper)
         {
-            try
+            this.employeeRepository = employeeRepository;
+            this.mapper = mapper;
+        }
+
+        [HttpPost, Route("register")]
+        public async Task<IActionResult> RegisterEmployee([FromBody]EmployeeResource emp)
+        {
+            if (!ModelState.IsValid)
             {
-                this.employeeService.saveEmployeeRecord(emp);
-                return Content("Saved!");
+                return BadRequest(ModelState);
             }
-            catch (Exception e)
-            {
-                return Content("Something went wrong!");
-            }
+            var employee = mapper.Map<EmployeeResource, Employee>(emp);
+            employee.CreatedDate = DateTime.Now;
+            employee.ModifiedDate = DateTime.Now;
+            employeeRepository.RegisterEmployee(employee);
+            return Ok();
+
+
         }
         [HttpGet, Route("getAllEmployees")]
-        public ActionResult GetAllEmployees()
+        public async Task<IActionResult> GetAllEmployees()
         {
-            try
+            return Ok();
+            
+        }
+
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> GetEmployee(int id)
+        {
+            var employee = await employeeRepository.GetEmployee(id);
+            if (employee == null)
             {
-                return Content("All");
+                return BadRequest();
             }
-            catch (Exception e) {
-                return Content("No Employees");
-            }
+            var result = mapper.Map<Employee, EmployeeResource>(employee);
+            return Ok(result);
+
             
         }
     }
