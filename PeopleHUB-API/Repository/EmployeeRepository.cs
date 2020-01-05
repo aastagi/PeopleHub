@@ -26,6 +26,7 @@ namespace Repository
         public void RegisterEmployee(Employee employee)
         {
             this.context.Add(employee);
+            this.context.SaveChanges();
         }
     }
 }

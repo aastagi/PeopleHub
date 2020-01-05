@@ -20,7 +20,7 @@ namespace PeopleHUB_API.Resources
         
         public string Location { get; set; }
         
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
         
         public DateTime ModifiedDate { get; set; }
         

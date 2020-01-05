@@ -20,7 +20,7 @@ namespace Data.Models
         [Required]
         public string Location { get; set; }
         [Required]
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
         [Required]
         public DateTime ModifiedDate { get; set; }
         [Required]
