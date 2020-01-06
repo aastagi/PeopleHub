@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  model:any ={};
+  constructor(private router :Router) { }
 
   ngOnInit() {
+  }
+
+  onLoginFormSubmit(formvalue)
+  {
+      console.log(formvalue);
+      console.log(this.model);
+  }
+
+  onRegisterClick()
+  {
+      this.router.navigateByUrl('/register')
   }
 
 }

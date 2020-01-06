@@ -36,7 +36,8 @@ namespace PeopleHUB_API
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddAutoMapper(typeof(Startup));
-        
+            services.AddCors();
+
             services.AddDbContext<DataContext>(options => options.UseSqlServer(SQLConnectionString));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -55,7 +56,7 @@ namespace PeopleHUB_API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
         }
