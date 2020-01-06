@@ -19,7 +19,9 @@ namespace PeopleHUB_API.Resources
         public string Password { get; set; }
         
         public string Location { get; set; }
-        
+
+        public string CountryCode { get; set; }
+
         public string MobileNumber { get; set; }
         
         public DateTime ModifiedDate { get; set; }

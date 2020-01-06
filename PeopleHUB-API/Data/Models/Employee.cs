@@ -20,6 +20,8 @@ namespace Data.Models
         [Required]
         public string Location { get; set; }
         [Required]
+        public string CountryCode { get; set; }
+        [Required]
         public string MobileNumber { get; set; }
         [Required]
         public DateTime ModifiedDate { get; set; }

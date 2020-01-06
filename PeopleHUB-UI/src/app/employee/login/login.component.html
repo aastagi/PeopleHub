@@ -4,29 +4,48 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Login via site</h3>
-       </div>
+        </div>
         <div class="panel-body">
-          <form accept-charset="UTF-8" role="form">
-                  <fieldset>
+          <form accept-charset="UTF-8" role="form" #loginForm="ngForm" (ngSubmit)=onLoginFormSubmit()>
+            <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="yourmail@example.com" name="email" type="text">
-            </div>
-            <div class="form-group">
-              <input class="form-control" placeholder="Password" name="password" type="password" value="">
-            </div>
-            <div class="checkbox">
+                <input class="form-control" required placeholder="yourmail@example.com" name="email" type="text"
+                  [(ngModel)]="model.email" #email="ngModel">
+              </div>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+                <div *ngIf="email.errors.required">
+                  Email is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" required placeholder="Password" name="password" type="password" value=""
+                  [(ngModel)]="model.password" #password="ngModel">
+              </div>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                <div *ngIf="password.errors.required">
+                  password is required.
+                </div>
+              </div>
+
+              <div class="checkbox">
                 <label>
                   <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                 </label>
               </div>
-            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-          </fieldset>
-            </form>
-                    <hr/>
-                  <h4 class="text-center"> OR</h4>
-                  <input class="btn btn-lg  btn-block btn-info" type="submit" value="Register Here">
+              <button class="btn btn-lg btn-success btn-block" type="submit"
+                [disabled]=!loginForm.form.valid>
+                Login
+              </button>
+            </fieldset>
+          </form>
+          <hr />
+          <h4 class="text-center"> OR</h4>
+          <button type="button" class="btn btn-lg  btn-block btn-info" (click)=onRegisterClick()>Register Here.
+          </button>
         </div>
+      </div>
     </div>
   </div>
-</div>
 </div>

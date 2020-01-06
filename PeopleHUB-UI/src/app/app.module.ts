@@ -8,6 +8,8 @@ import { AuthService } from './services/auth.service';
 import { EmployeeModule } from './employee/employee.module';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { EmployeeService } from './services/employee.service';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -18,9 +20,9 @@ import { RouterModule } from '@angular/router';
       BrowserModule,
       NgbModule,
       EmployeeModule,
-      AppRoutingModule,RouterModule
+      AppRoutingModule,RouterModule ,HttpClientModule
    ],
-   providers: [AuthService],
+   providers: [AuthService,EmployeeService],
    bootstrap: [
       AppComponent
    ]
