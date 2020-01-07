@@ -22,13 +22,14 @@ export class LoginComponent implements OnInit {
         data =>{
           this.authService.employee=data;
           this.authService.isEmployeeLoggedIn=true;
-          console.log(this.authService.employee);
+          this.router.navigateByUrl('/home');
+
         },
         error=>{
           console.log('Error occured' ,error)
         }
       )
-      this.router.navigateByUrl('/home');
+
   }
 
   onRegisterClick()
