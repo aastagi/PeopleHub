@@ -9,6 +9,6 @@ namespace Repository
     public interface IProductRepository
     {
         void AddProduct(Product product);
-        Task<Product> GetProducts();
+        Task<Product> GetProduct(int productId);
     }
 }

@@ -1,3 +1,98 @@
 <p>
-  product-detail works!
+  Add new product.
 </p>
+<div class="card bg-light mx-auto">
+<form>
+  <table>
+    <tr>
+      <td>
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <select class="custom-select" style="max-width: 120px;" formControlName="category">
+          <option value="">Category</option>
+          <option value="1">Real Estate</option>
+          <option value="2">Vehicle</option>
+        </select>
+        <input name="" class="form-control" formControlName="category" placeholder="Category" type="text">
+      </div>
+      </td>
+      <td>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="employeeId" class="form-control" formControlName="employeeId" placeholder="Employee ID" type="text">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input name="description" class="form-control" formControlName="description" placeholder="Description" type="text">
+      </div>
+      </td>
+      <td>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="location" class="form-control" formControlName="location" placeholder="Location" type="text">
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input name="specification" class="form-control" formControlName="specification" placeholder="Specification" type="text">
+      </div>
+      </td>
+      <td>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="price" class="form-control" formControlName="price" placeholder="Price" type="text">
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input name="address" class="form-control" formControlName="address" placeholder="Address" type="text">
+      </div>
+      </td>
+      <td>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="title" class="form-control" formControlName="title" placeholder="Title" type="text">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="priceNegotiable" class="form-control" formControlName="priceNegotiable" placeholder="Price Negotiable" type="text">
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</div>

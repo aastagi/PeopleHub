@@ -30,11 +30,12 @@ namespace PeopleHUB_API.Controllers
         //}
 
         //GET: api/Product/5
-        [HttpGet(Name = "Get")]
-        public string GetAllProducts(int id)
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
         {
-            var product = await productRepository.GetProducts();
-            var result = mapper.Map<Product, ProductRepository>(product);
+            var product = await productRepository.GetProduct(id);
+            
+            var result = mapper.Map<Product, ProductResource>(product);
             return Ok(result);
         }
 
