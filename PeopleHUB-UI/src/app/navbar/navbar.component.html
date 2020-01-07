@@ -22,12 +22,12 @@
 
     <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right" *ngIf="authService.isEmployeeLoggedIn">
       <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown3" role="button">
-        Welcome UserName
+        Welcome {{this.authService.employee.firstName }}
       </a>
       <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
         <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Profile</a>
         <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Notifications</a>
-        <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Logout</a>
+        <a ngbDropdownItem href="#" (click)="onLogoutClick()">Logout</a>
       </div>
     </li>
   </ul>

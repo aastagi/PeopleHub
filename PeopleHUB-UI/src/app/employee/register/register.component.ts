@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
-import { Employee } from 'src/app/models/employee';
+import { Employee } from 'src/app/models/employee.model';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { EmployeeModule } from '../employee.module';
 
@@ -15,14 +15,15 @@ export class RegisterComponent implements OnInit {
   employee  = new Employee();
 
   profileForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['',Validators.required],
-    email:['',Validators.required],
+    firstName: ['', [Validators.required,Validators.minLength(4),Validators.pattern('^[a-zA-Z]+$')]],
+    lastName: ['',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]],
+    email:['',[Validators.required,Validators.email]],
     countryCode:['',Validators.required],
-    mobileNumber:['',Validators.required],
+    mobileNumber:['',[Validators.required,Validators.pattern('^[0][1-9]\d{9}$|^[1-9]\d{9}$')]],
     location:['',Validators.required],
-    password:['',Validators.required],
-    confirmPassword:['',Validators.required]
+    password:['',[Validators.required,Validators.minLength(6)]],
+    confirmPassword:['',[Validators.required]]
+
   });
   constructor(private fb: FormBuilder ,private employeeService :EmployeeService) { }
 
