@@ -59,8 +59,21 @@ namespace PeopleHUB_API.Controllers
             }
             var result = mapper.Map<Employee, EmployeeResource>(employee);
             return Ok(result);
-
-            
+           
         }
+
+        [HttpPost,Route("login")]
+        public async Task<IActionResult>Login(LoginResource loginResource)
+        {
+            var employee = await employeeRepository.ValidateEmployee(loginResource.Email, loginResource.Password);
+            if(employee==null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(employee);
+        }
+
+
     }
 }

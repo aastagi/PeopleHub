@@ -28,5 +28,11 @@ namespace Repository
             this.context.Add(employee);
             this.context.SaveChanges();
         }
+
+        public async Task<Employee> ValidateEmployee(string email, string password)
+        {
+            Employee employee = await context.Employees.SingleOrDefaultAsync(emp => (emp.Email == email && emp.Password == password));
+            return employee;
+        }
     }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { LoginModel } from 'src/app/models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +10,30 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  model:any ={};
-  constructor(private router :Router) { }
+  loginModel = new LoginModel();
+  constructor(private router :Router ,private authService :AuthService) { }
 
   ngOnInit() {
   }
 
-  onLoginFormSubmit(formvalue)
+  onLoginFormSubmit()
   {
-      console.log(formvalue);
-      console.log(this.model);
+      this.authService.Login(this.loginModel).subscribe(
+        data =>{
+          this.authService.employee=data;
+          this.authService.isEmployeeLoggedIn=true;
+          console.log(this.authService.employee);
+        },
+        error=>{
+          console.log('Error occured' ,error)
+        }
+      )
+      this.router.navigateByUrl('/home');
   }
 
   onRegisterClick()
   {
+
       this.router.navigateByUrl('/register')
   }
 
