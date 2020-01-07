@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { EmployeeService } from './services/employee.service';
 import { HttpClientModule }    from '@angular/common/http';
+import { BannerComponent } from './shared/components/banner/banner.component';
 
 @NgModule({
    declarations: [

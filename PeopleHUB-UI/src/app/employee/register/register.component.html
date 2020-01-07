@@ -29,15 +29,15 @@
               <input name="firstName" class="form-control" formControlName="firstName" placeholder="First Name"
                 type="text">
             </div>
-            <div
+           <div
               *ngIf="profileForm.get('firstName').invalid && (profileForm.get('firstName').dirty || profileForm.get('firstName').touched)"
               class="alert alert-danger">
 
               <div *ngIf="profileForm.get('firstName').errors.required">
-                Name is required.
+                FirstName is required.
               </div>
               <div *ngIf="profileForm.get('firstName').errors.minlength">
-                Name must be at least 4 characters long.
+                FirstName must be at least 4 characters long.
               </div>
             </div>
           </tr>
@@ -50,6 +50,17 @@
               <input name="lastName" class="form-control" formControlName="lastName" placeholder="Last Name"
                 type="text">
             </div>
+            <div
+              *ngIf="profileForm.get('lastName').invalid && (profileForm.get('lastName').dirty || profileForm.get('lastName').touched)"
+              class="alert alert-danger">
+
+              <div *ngIf="profileForm.get('lastName').errors.required">
+                LastName is required.
+              </div>
+              <div *ngIf="profileForm.get('lastName').errors.minlength">
+                LastName must be at least 4 characters long.
+              </div>
+            </div>
           </tr>
 
           <tr>
@@ -59,6 +70,17 @@
                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
               </div>
               <input name="email" class="form-control" formControlName="email" placeholder="Email address" type="email">
+            </div>
+            <div
+              *ngIf="profileForm.get('email').invalid && (profileForm.get('email').dirty || profileForm.get('email').touched)"
+              class="alert alert-danger">
+
+              <div *ngIf="profileForm.get('email').errors.required">
+                Email is required.
+              </div>
+              <div *ngIf="profileForm.get('email').errors.email">
+                Email should be of format abc@xyz.com
+              </div>
             </div>
           </tr>
           <tr>
@@ -74,6 +96,30 @@
               </select>
               <input name="" class="form-control" formControlName="mobileNumber" placeholder="Phone number" type="text">
             </div>
+            <!-- Country code validation -->
+            <div
+            *ngIf="profileForm.get('countryCode').invalid && (profileForm.get('countryCode').dirty || profileForm.get('countryCode').touched)"
+            class="alert alert-danger">
+
+            <div *ngIf="profileForm.get('countryCode').errors.required">
+              Mobile number is required.
+            </div>
+
+          </div>
+
+            <!-- Mobile number validation -->
+            <div
+              *ngIf="profileForm.get('mobileNumber').invalid && (profileForm.get('mobileNumber').dirty || profileForm.get('mobileNumber').touched)"
+              class="alert alert-danger">
+
+              <div *ngIf="profileForm.get('mobileNumber').errors.required">
+                Mobile number is required.
+              </div>
+              <div *ngIf="profileForm.get('mobileNumber').errors.pattern">
+                mobile number should not contain special char or alphabets
+              </div>
+            </div>
+
           </tr>
           <tr>
             <!-- Location -->
@@ -88,6 +134,14 @@
                 <option>Mumbai</option>
               </select>
             </div>
+            <div
+            *ngIf="profileForm.get('location').invalid && (profileForm.get('location').dirty || profileForm.get('location').touched)"
+            class="alert alert-danger">
+
+            <div *ngIf="profileForm.get('location').errors.required">
+              Please select location.
+            </div>
+          </div>
           </tr>
           <tr>
             <!-- password -->
@@ -98,6 +152,18 @@
               <input class="form-control" formControlName="password" name="password" placeholder="Create password"
                 type="password">
             </div>
+            <div
+            *ngIf="profileForm.get('password').invalid && (profileForm.get('password').dirty || profileForm.get('password').touched)"
+            class="alert alert-danger">
+
+            <div *ngIf="profileForm.get('password').errors.required">
+              Password is required.
+            </div>
+            <div *ngIf="profileForm.get('password').errors.minlength">
+              Password must be at least 6 characters long.
+            </div>
+          </div>
+
           </tr>
           <tr>
             <!-- Reconfirm password -->
@@ -108,6 +174,17 @@
               <input class="form-control" appConfirmEqualValidator="password" formControlName="confirmPassword"
                 placeholder="Repeat password" type="password">
             </div>
+            <div
+            *ngIf="profileForm.get('confirmPassword').invalid && (profileForm.get('confirmPassword').dirty || profileForm.get('confirmPassword').touched)"
+            class="alert alert-danger">
+
+            <div *ngIf="profileForm.get('confirmPassword').errors.required">
+              Password is required.
+            </div>
+            <div *ngIf="profileForm.get('confirmPassword').errors.minlength">
+              Password must be at least 6 characters long.
+            </div>
+          </div>
           </tr>
           <tr>
             <div class="form-group">
