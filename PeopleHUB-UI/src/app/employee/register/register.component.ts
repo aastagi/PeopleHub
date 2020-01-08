@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
+import { FormBuilder, Validators ,FormGroup, AbstractControl } from '@angular/forms';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { EmployeeModule } from '../employee.module';
@@ -19,16 +19,23 @@ export class RegisterComponent implements OnInit {
     lastName: ['',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]],
     email:['',[Validators.required,Validators.email]],
     countryCode:['',Validators.required],
-    mobileNumber:['',[Validators.required,Validators.pattern('^[0][1-9]\d{9}$|^[1-9]\d{9}$')]],
+    mobileNumber:['',[Validators.required,Validators.pattern('^[0-9]{10}$')]],
     location:['',Validators.required],
     password:['',[Validators.required,Validators.minLength(6)]],
     confirmPassword:['',[Validators.required]]
+  } , {validator: this.passwordConfirming});
 
-  });
+
   constructor(private fb: FormBuilder ,private employeeService :EmployeeService) { }
 
   ngOnInit() {
   }
+
+  passwordConfirming(c: AbstractControl): { invalid: boolean } {
+    if (c.get('password').value !== c.get('confirmPassword').value) {
+        return {invalid: true};
+    }
+}
 
   onSubmit(formValues){
       console.log(formValues);
