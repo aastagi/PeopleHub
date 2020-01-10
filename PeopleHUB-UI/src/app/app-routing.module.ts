@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: "product-detail",
-    component: ProductDetailNewComponent
+    component: ProductDetailComponent
   }
 ];
 @NgModule({

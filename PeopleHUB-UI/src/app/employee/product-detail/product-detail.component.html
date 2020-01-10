@@ -1,102 +1,112 @@
+<div class="container">
 <p>
   Add new product.
 </p>
 <article class="card bg-light">
-  <div class="card-body mx-auto">
+  <div class="card-body">
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
-  <table>
-    <tr>
-      <td>
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-          </div>
-          <input name="title" class="form-control" formControlName="title" placeholder="Title" type="text">
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> </span>
-        </div>
-        <select class="custom-select" style="max-width: 200px;" formControlName="category">
-          <option value="">Category</option>
-          <option value="1">Real Estate</option>
-          <option value="2">Vehicle</option>
-        </select>
-      </div>
-      </td>
-    </tr>
-
-      <tr>
-        <td>
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-map-marker" aria-hidden="true"></i></span>
-            </div>
-            <input name="location" class="form-control" formControlName="location" placeholder="Location" type="text">
-          </div>
-        </td>
-      </tr>
-    <tr>
-      <td>
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-        </div>
-        <input name="specification" class="form-control" formControlName="specification" placeholder="Specification" type="text">
-      </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-          </div>
-          <input name="price" class="form-control" formControlName="price" placeholder="Price" type="text">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
-        </div>
-        <input name="address" class="form-control" formControlName="address" placeholder="Address" type="text">
-      </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-money"></i> </span>
-          </div>
-          <input name="priceNegotiable" class="form-control" formControlName="priceNegotiable" placeholder="Price Negotiable" type="text">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-        </div>
-        <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description" placeholder="Description" rows="3" required></textarea>
-      </div>
-      </td>
-
-    </tr>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block"> Submit </button>
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
     </div>
-  </table>
+    <input name="title" class="form-control" formControlName="title" placeholder="Title" type="text">
+  </div>
+
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> </span>
+    </div>
+    <select class="custom-select" formControlName="category">
+      <option value="">Category</option>
+      <option value="1">Real Estate</option>
+      <option value="2">Vehicle</option>
+    </select>
+  </div>
+
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+    </div>
+    <select class="custom-select"  name="locationId" formControlName="locationId">
+      <option value="">Select Location</option>
+      <option value="1">Banglore</option>
+        <option value="2">Mumbai</option>
+    </select>
+  </div>
+
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+    </div>
+    <textarea class="form-control"  class="form-control" name=specification formControlName="specification" placeholder="Specification" rows="3"></textarea>
+  </div>
+
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+    </div>
+    <input name="price" class="form-control" formControlName="price" placeholder="Price" type="text">
+  </div>
+
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+    </div>
+    <input name="address" class="form-control" formControlName="address" placeholder="Address" type="text">
+  </div>
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-money"></i> </span>
+    </div>
+    <input name="priceNegotiable" class="form-control" formControlName="priceNegotiable" placeholder="Price Negotiable" type="text">
+  </div>
+
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+    </div>
+    <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description" placeholder="Description" rows="3" required></textarea>
+  </div>
+  <fieldset class="form-group">
+    <legend>Is Price Negotiable?</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Yes" checked="">
+        Yes
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="No">
+        No
+      </label>
+    </div>
+
+  </fieldset>
+
+  <!-- IsActive -->
+  <fieldset class="form-group">
+    <legend>Product is Active?</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Yes" checked="">
+        Yes
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="No">
+        No
+      </label>
+    </div>
+
+  </fieldset>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success" style="width: 50%;"> Add product</button>
+    <button type="submit" class="btn btn-dark" style="width: 50%;"> Reset  </button>
+</div>
+
 </form>
 </div>
 </article>
+</div>

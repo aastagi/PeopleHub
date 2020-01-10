@@ -29,8 +29,8 @@ export class ProductDetailComponent implements OnInit {
   }
   onSubmit(formValues){
     this.product.title = formValues.title;
-    this.product.category = formValues.category;
-    this.product.location = formValues.location;
+    //this.product.category = formValues.category;
+    //this.product.location = formValues.location;
     this.product.specification = formValues.specification;
     this.product.price = formValues.price;
     this.product.address = formValues.address;
