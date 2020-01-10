@@ -15,6 +15,8 @@ namespace PeopleHUB_API.Mapping
         {
             CreateMap<EmployeeResource, Employee>();
             CreateMap<Employee, EmployeeResource>();
+            CreateMap<ProductResource, Product>();
+            CreateMap<Product, ProductResource>();
         }
     }
 }
