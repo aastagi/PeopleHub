@@ -18,7 +18,7 @@ namespace Data.Models
         [Required]
         public string Password { get; set; }
         [Required]
-        public string Location { get; set; }
+        public int LocationId { get; set; }
         [Required]
         public string CountryCode { get; set; }
         [Required]
@@ -29,6 +29,8 @@ namespace Data.Models
         public DateTime CreatedDate { get; set; }
 
         public IEnumerable<Product> Products { get; set; }
+
+       
 
     }
 }

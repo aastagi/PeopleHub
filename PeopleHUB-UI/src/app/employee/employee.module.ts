@@ -9,11 +9,12 @@ import { RegisterComponent } from './register/register.component';
 import { ProductDetailComponent} from './product-detail/product-detail.component';
 import { BannerComponent } from '../shared/components/banner/banner.component';
 import { MainSearchComponent } from '../shared/components/main-search/main-search.component';
+import { ProductDetailNewComponent } from './product-detail-new/product-detail-new.component';
 
 @NgModule({
   imports: [CommonModule ,RouterModule,FormsModule,ReactiveFormsModule],
   exports: [HomeComponent],
   declarations: [EmployeeComponent, HomeComponent,LoginComponent,RegisterComponent,
-    ProductDetailComponent,BannerComponent,MainSearchComponent]
+    ProductDetailComponent,BannerComponent,MainSearchComponent ,ProductDetailNewComponent]
 })
 export class EmployeeModule {}

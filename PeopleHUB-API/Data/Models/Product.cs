@@ -16,7 +16,7 @@ namespace Data.Models
         [StringLength(500)]
         public string Description { get; set; }
         [Required]
-        public string Location { get; set; }
+        public int LocationId { get; set; }
         [Required]
         public string Specification { get; set; }
         [Required]
@@ -26,11 +26,12 @@ namespace Data.Models
         [Required]
         public string Title { get; set; }
 
-        public int PriceNegotiable { get; set; }
+        public Boolean PriceNegotiable { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         public Employee Employee { get; set; }
         public Category Category { get; set; }
+        public Location Location { get; set; }
 
     }
 }

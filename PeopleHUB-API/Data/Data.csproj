@@ -19,6 +19,8 @@
     <Compile Remove="Migrations\20200104053455_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20200104061924_InitialMigration.cs" />
     <Compile Remove="Migrations\20200104061924_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200110022337_addingLocationTable.cs" />
+    <Compile Remove="Migrations\20200110022337_addingLocationTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,6 +16,8 @@ namespace Data
 
         public DbSet<Favourite> Favourites { get; set; }
 
+        public DbSet<Location>Locations { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
        

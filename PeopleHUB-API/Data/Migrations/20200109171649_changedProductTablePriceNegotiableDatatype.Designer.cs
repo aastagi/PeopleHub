@@ -4,14 +4,16 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200109171649_changedProductTablePriceNegotiableDatatype")]
+    partial class changedProductTablePriceNegotiableDatatype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +57,8 @@ namespace Data.Migrations
                     b.Property<string>("LastName")
                         .IsRequired();
 
-                    b.Property<int>("LocationId");
+                    b.Property<string>("Location")
+                        .IsRequired();
 
                     b.Property<string>("MobileNumber")
                         .IsRequired();
@@ -87,19 +90,6 @@ namespace Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Favourites");
-                });
-
-            modelBuilder.Entity("Data.Models.Location", b =>
-                {
-                    b.Property<int>("LocationId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LocationName");
-
-                    b.HasKey("LocationId");
-
-                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("Data.Models.MostVisited", b =>
@@ -142,7 +132,8 @@ namespace Data.Migrations
 
                     b.Property<bool>("IsActive");
 
-                    b.Property<int>("LocationId");
+                    b.Property<string>("Location")
+                        .IsRequired();
 
                     b.Property<DateTime>("ModifiedDate");
 
@@ -161,8 +152,6 @@ namespace Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("EmployeeId");
-
-                    b.HasIndex("LocationId");
 
                     b.ToTable("Products");
                 });
@@ -220,11 +209,6 @@ namespace Data.Migrations
                     b.HasOne("Data.Models.Employee", "Employee")
                         .WithMany("Products")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Data.Models.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

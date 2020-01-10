@@ -26,4 +26,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/home')
 
   }
+  onAddProductClick(){
+    this.router.navigateByUrl('/product-detail')
+  }
 }
