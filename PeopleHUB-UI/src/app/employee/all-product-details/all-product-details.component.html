@@ -1,0 +1,22 @@
+
+<ngb-tabset [justify]="currentJustify">
+  <ngb-tab >
+    <ng-template ngbTabTitle><b>Add Product Details</b></ng-template>
+    <ng-template ngbTabContent>
+      <app-product-detail></app-product-detail>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Upload Images</b></ng-template>
+    <ng-template ngbTabContent>
+      <app-product-image-upload></app-product-image-upload>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Preview</b></ng-template>
+    <ng-template ngbTabContent>
+      <app-product-card></app-product-card>
+    </ng-template>
+  </ngb-tab>
+
+</ngb-tabset>

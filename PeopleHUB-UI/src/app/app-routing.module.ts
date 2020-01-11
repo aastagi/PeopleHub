@@ -5,8 +5,8 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { HomeComponent } from "./employee/home/home.component";
 import { LoginComponent } from "./employee/login/login.component";
 import { RegisterComponent } from './employee/register/register.component';
-import {ProductDetailComponent} from './employee/product-detail/product-detail.component';
-import { ProductDetailNewComponent } from './employee/product-detail-new/product-detail-new.component';
+import { ProductDetailComponent } from './employee/product-detail/product-detail.component';
+import { AllProductDetailsComponent } from './employee/all-product-details/all-product-details.component';
 
 const routes: Routes = [
   {
@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: "product-detail",
-    component: ProductDetailComponent
+    component: AllProductDetailsComponent
   }
 ];
 @NgModule({

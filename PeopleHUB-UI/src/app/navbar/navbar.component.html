@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#" routerLink="/">People-HUB</a>
+  <a class="navbar-brand" href="#" routerLink="/">People-Hub</a>
 
 
   <form class="form-inline my-2 my-lg-0">
@@ -7,7 +7,11 @@
       <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> </span>
       </div>
-      <input type="text" class="form-control" placeholder="Select Location" >
+      <select class="custom-select"  name="locationId" formControlName="locationId">
+        <option value="">Select Location</option>
+        <option value="1">Banglore</option>
+          <option value="2">Mumbai</option>
+      </select>
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button">Search</button>
       </div>
@@ -20,7 +24,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" routerLink="/product-detail">Link</a>
       </li>
     </ul>
 
