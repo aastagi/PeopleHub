@@ -17,7 +17,7 @@ namespace PeopleHUB_API.Resources
 
         public string Description { get; set; }
 
-        public string Location { get; set; }
+        public int LocationId { get; set; }
 
         public string Specification { get; set; }
 
@@ -27,7 +27,7 @@ namespace PeopleHUB_API.Resources
 
         public string Title { get; set; }
 
-        public int PriceNegotiable { get; set; }
+        public Boolean PriceNegotiable { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

@@ -33,5 +33,7 @@ namespace Data.Models
         public Category Category { get; set; }
         public Location Location { get; set; }
 
+        public IEnumerable<ProductImage> ProductImages { get; set; }
+
     }
 }

@@ -3,6 +3,9 @@
   <legend>Add Product</legend>
   <hr>
   <div class="card bg-light">
+    <p>
+      {{productForm.value|json}}
+    </p>
   <article class="card-body" >
     <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)" >
       <!-- CategoryId -->
@@ -12,9 +15,8 @@
       </div>
       <select class="form-control" name="categoryId" formControlName="categoryId">
         <option value=""> Select Category</option>
-        <option>Home</option>
-        <option>Property</option>
-        <option>Electronics</option>
+        <option *ngFor="let item of categories" [value]="item.categoryId">{{item.categoryName}}</option>
+
       </select>
     </div>
     <!-- Title -->
@@ -52,8 +54,8 @@
       </div>
       <select class="custom-select"  name="locationId" formControlName="locationId">
         <option value="">Select Location</option>
-        <option value="1">Banglore</option>
-          <option value="2">Mumbai</option>
+        <option *ngFor="let item of locations" [value]="item.locationId">{{item.locationName}}</option>
+
       </select>
 
       </div>
@@ -69,13 +71,13 @@
         <legend>Is Price Negotiable?</legend>
         <div class="form-check">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Yes" checked="">
+            <input type="radio" class="form-check-input" name="priceNegotiable" id="priceRadios" value="True" formControlName="priceNegotiable" >
             Yes
           </label>
         </div>
         <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="No">
+            <input type="radio" class="form-check-input" name="priceNegotiable" id="priceRadios" value="False" formControlName="priceNegotiable">
             No
           </label>
         </div>
@@ -86,13 +88,13 @@
         <legend>Product is Active?</legend>
         <div class="form-check">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Yes" checked="">
+            <input type="radio" class="form-check-input" name="isActive" id="optionsRadios1" value="True" formControlName="isActive">
             Yes
           </label>
         </div>
         <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="No">
+            <input type="radio" class="form-check-input" name="isActive" id="optionsRadios2" value="False" formControlName="isActive">
             No
           </label>
         </div>

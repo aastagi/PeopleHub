@@ -11,19 +11,23 @@ import { RouterModule } from '@angular/router';
 import { EmployeeService } from './services/employee.service';
 import { HttpClientModule }    from '@angular/common/http';
 import { BannerComponent } from './shared/components/banner/banner.component';
+import { DataService } from './services/data.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      NavbarComponent
+      NavbarComponent,
+      // ProductCardComponent
    ],
    imports: [
       BrowserModule,
       NgbModule,
       EmployeeModule,
-      AppRoutingModule,RouterModule ,HttpClientModule
+      AppRoutingModule,RouterModule ,HttpClientModule,FormsModule,ReactiveFormsModule
    ],
-   providers: [AuthService,EmployeeService],
+   providers: [AuthService,EmployeeService,DataService],
    bootstrap: [
       AppComponent
    ]

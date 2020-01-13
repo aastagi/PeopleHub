@@ -36,6 +36,8 @@ namespace PeopleHUB_API
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddAutoMapper(typeof(Startup));
             services.AddCors();
 

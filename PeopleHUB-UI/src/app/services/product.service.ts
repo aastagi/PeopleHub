@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product.model';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+
+  tempProduct : Product = new Product();
 
 
 
@@ -19,5 +20,12 @@ constructor(private http:HttpClient) { }
             data=>console.log("success",data),
             error=>console.log("error occured",error)
           );
+    }
+
+    uploadImage(productid,file)
+    {
+      var formData = new FormData();
+      formData.append('file',file)
+        return this.http.post('/api/product/'+productid+'/productImage',formData)
     }
 }

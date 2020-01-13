@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-image-upload',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductImageUploadComponent implements OnInit {
 
-  constructor() { }
+  productId: number;
+  @ViewChild('fileInput', {static: false}) fileInput :ElementRef;
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
+  }
+
+  uploadImage(){
+    var nativeElement :HTMLInputElement=this.fileInput.nativeElement;
+    this.productService.uploadImage(this.productId,nativeElement.files[0])
+    .subscribe(x=>console.log(x));
   }
 
 }

@@ -12,7 +12,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductImageUploadComponent } from './product-image-upload/product-image-upload.component';
 import { AllProductDetailsComponent } from './all-product-details/all-product-details.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductCardComponent } from '../shared/components/product-card/product-card.component';
 
 @NgModule({
   imports: [CommonModule ,RouterModule,FormsModule,ReactiveFormsModule,NgbModule],

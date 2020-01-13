@@ -3,6 +3,8 @@ import { FormBuilder, Validators ,FormGroup, AbstractControl } from '@angular/fo
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { EmployeeModule } from '../employee.module';
+import { DataService } from 'src/app/services/data.service';
+import { Location } from 'src/app/models/location.model';
 
 
 @Component({
@@ -13,6 +15,11 @@ import { EmployeeModule } from '../employee.module';
 export class RegisterComponent implements OnInit {
 
   employee  = new Employee();
+  locations:Location[]=[];
+  selectedLocation :Location={
+    locationId:-1,
+    locationName:'Select Location'
+  };
 
   profileForm = this.fb.group({
     firstName: ['', [Validators.required,Validators.minLength(4),Validators.pattern('^[a-zA-Z]+$')]],
@@ -26,9 +33,14 @@ export class RegisterComponent implements OnInit {
   } , {validator: this.passwordConfirming});
 
 
-  constructor(private fb: FormBuilder ,private employeeService :EmployeeService) { }
+  constructor(private fb: FormBuilder ,private employeeService :EmployeeService,
+    private dataService :DataService) { }
 
   ngOnInit() {
+    this.dataService.getLocations().subscribe(data=>{
+      this.locations=[...data];
+      this.locations.push(this.selectedLocation);
+   });
   }
 
   passwordConfirming(c: AbstractControl): { invalid: boolean } {

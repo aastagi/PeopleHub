@@ -7,10 +7,13 @@
       <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> </span>
       </div>
-      <select class="custom-select"  name="locationId" formControlName="locationId">
-        <option value="">Select Location</option>
-        <option value="1">Banglore</option>
-          <option value="2">Mumbai</option>
+      <select class="custom-select"  name="locationId"
+        (change) ="onLocationChange()"
+        [(ngModel)]="selectedLocation"
+      >
+        <option value="-1" selected="selected" >Select Location</option>
+        <option *ngFor="let item of locations" [ngValue]="item">{{item.locationName}}</option>
+
       </select>
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button">Search</button>

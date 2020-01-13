@@ -43,6 +43,10 @@ namespace PeopleHUB_API.Controllers
         [HttpPost, Route("addproduct")]
         public async Task<IActionResult> AddProduct([FromBody]ProductResource prod)
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest("Error occured");
+            }
             var product = mapper.Map<ProductResource, Product>(prod);
             product.CreatedDate = DateTime.Now;
             product.ModifiedDate = DateTime.Now;
@@ -50,16 +54,5 @@ namespace PeopleHUB_API.Controllers
             return Ok();
         }
 
-        // PUT: api/Product/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        // DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

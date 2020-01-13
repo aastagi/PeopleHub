@@ -135,9 +135,7 @@
               </div>
               <select class="form-control" formControlName="location">
                 <option value=""> Select your location</option>
-                <option>Banglore</option>
-                <option>Hydrabad</option>
-                <option>Mumbai</option>
+                <option *ngFor="let item of locations">{{item.locationName}}</option>
               </select>
             </div>
             <div
