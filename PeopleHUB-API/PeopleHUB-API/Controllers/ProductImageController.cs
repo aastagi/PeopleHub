@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using AutoMapper;
+using Repository;
+using Data.Models;
+using PeopleHUB_API.Resources;
 
 namespace PeopleHUB_API.Controllers
 {
@@ -12,11 +16,19 @@ namespace PeopleHUB_API.Controllers
     [ApiController]
     public class ProductImageController : ControllerBase
     {
+
+        private readonly IMapper mapper;
+        private readonly IProductImageRepository productImageRepository;
+        public ProductImageController(IMapper mapper ,IProductImageRepository productImageRepository)
+        {
+            this.mapper = mapper;
+            this.productImageRepository = productImageRepository;
+        }
         public string uploadFolderPath = @"C:\PeopleHub\UploadedProductImages";
         private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png" };
         private readonly int MAX_FILE_SIZE = 10 * 1024 * 1024;
         [HttpPost]
-        public async Task<IActionResult> Upload(int productId, IFormFile file)
+        public async Task<IActionResult> Upload(int productId, IFormFile file,ProductImageResource productImageResource)
         {
             if (!Directory.Exists(uploadFolderPath))
             {
@@ -25,7 +37,7 @@ namespace PeopleHUB_API.Controllers
 
 
             if (file == null) return BadRequest("Null File");
-            if(file.Length==0) return BadRequest("Empty File");
+            if (file.Length == 0) return BadRequest("Empty File");
             if (file.Length > MAX_FILE_SIZE) return BadRequest("Max file size exceeded");
             var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
             if (!ACCEPTED_FILE_TYPES.Any(s => s == Path.GetExtension(file.FileName).ToLower())) return BadRequest("Invalid Fie type");
@@ -37,6 +49,22 @@ namespace PeopleHUB_API.Controllers
             }
 
             return Ok();
+
+        }
+
+        [HttpGet, Route("{id}")]
+        public async Task<IEnumerable<ProductImageResource>> GetProductImage(int ProductId)
+        {
+            var productImages = await productImageRepository.GetProductImages(ProductId);
+            var result = mapper.Map<IEnumerable<ProductImage>,IEnumerable<ProductImageResource>>(productImages);
+            return result;
+            
+        }
+
+        public void AddProductImageRecordToDatabase(ProductImageResource productImageResource)
+        {
+            var result = mapper.Map<ProductImageResource, ProductImage>(productImageResource);
+            productImageRepository.AddProductImage(result);
 
         }
     }

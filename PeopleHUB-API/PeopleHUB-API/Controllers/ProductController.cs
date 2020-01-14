@@ -38,7 +38,7 @@ namespace PeopleHUB_API.Controllers
             var result = mapper.Map<Product, ProductResource>(product);
             return Ok(result);
         }
-
+       
         // POST: api/Product
         [HttpPost, Route("addproduct")]
         public async Task<IActionResult> AddProduct([FromBody]ProductResource prod)

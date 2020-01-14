@@ -1,7 +1,8 @@
 export class ProductImage{
-  productId : number;
-  imageOriginalName:string;
-  imageGeneratedName:string;
-  isActive:boolean;
 
+  productImageId :number;
+  productId:number;
+  imageOriginalName:string;
+  isActive:boolean;
+  isThumbnailImage:boolean;
 }

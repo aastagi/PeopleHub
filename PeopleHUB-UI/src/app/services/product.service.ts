@@ -22,10 +22,10 @@ constructor(private http:HttpClient) { }
           );
     }
 
-    uploadImage(productid,file)
+    uploadImage(productid,file ,productImage)
     {
       var formData = new FormData();
       formData.append('file',file)
-        return this.http.post('/api/product/'+productid+'/productImage',formData)
+        return this.http.post('https://localhost:44371/api/product/'+productid+'/productImage',formData,productImage)
     }
 }
