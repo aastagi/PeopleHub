@@ -4,14 +4,16 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200115183930_AddedColumnProducts")]
+    partial class AddedColumnProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,6 +144,8 @@ namespace Data.Migrations
 
                     b.Property<bool>("IsActive");
 
+                    b.Property<bool>("IsDeleted");
+
                     b.Property<int>("LocationId");
 
                     b.Property<DateTime>("ModifiedDate");
@@ -201,7 +205,7 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Data.Models.Product", "Product")
-                        .WithMany("Favourites")
+                        .WithMany()
                         .HasForeignKey("ProductId");
                 });
 
