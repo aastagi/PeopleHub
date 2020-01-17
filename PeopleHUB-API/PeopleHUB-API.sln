@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29411.108
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleHUB-API", "PeopleHUB-API\PeopleHUB-API.csproj", "{3AB60700-8B80-47AF-AAE9-6A1B7345408D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{4DBAD564-5F6C-4C9E-9825-85F4118710C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{4A54C4C9-A995-46F7-956B-EDBAFFA426C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{4A54C4C9-A995-46F7-956B-EDBAFFA426C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{854AC740-5F59-474B-9527-F3A212427C11}"
+	ProjectSection(SolutionItems) = preProject
+		..\Copy of Task-List.xlsx = ..\Copy of Task-List.xlsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

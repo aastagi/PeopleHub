@@ -34,6 +34,7 @@ namespace Data.Models
         public Location Location { get; set; }
 
         public IEnumerable<ProductImage> ProductImages { get; set; }
+        public IEnumerable<Favourite> Favourites { get; set; }
 
     }
 }
