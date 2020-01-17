@@ -54,14 +54,14 @@ namespace Repository
         }
         public async Task<Product> GetProductBasedOnKeyword(string keyword)
         {
-            var product = await context.Products.SingleOrDefaultAsync(e => e.Location.LocationName == keyword 
-                                                                        || e.Description == keyword
-                                                                        || e.Specification == keyword 
-                                                                        || e.Address == keyword 
-                                                                        || e.Title == keyword
-                                                                        || Convert.ToString(e.Price) == keyword
-                                                                        || Convert.ToString(e.PriceNegotiable) == keyword
-                                                                        || Convert.ToString(e.CreatedDate) == keyword);
+            var product = await context.Products.SingleOrDefaultAsync(e => e.Location.LocationName.Contains(keyword) 
+                                                                        || e.Description.Contains(keyword)
+                                                                        || e.Specification.Contains(keyword)
+                                                                        || e.Address.Contains(keyword)
+                                                                        || e.Title.Contains(keyword)
+                                                                        || Convert.ToString(e.Price).Contains(keyword)
+                                                                        || Convert.ToString(e.PriceNegotiable).Contains(keyword)
+                                                                        || Convert.ToString(e.CreatedDate).Contains(keyword));
             return product;
         }
         public async Task<bool> DeleteFavourite(int productId)
