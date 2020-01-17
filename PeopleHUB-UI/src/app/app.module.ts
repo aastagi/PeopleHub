@@ -13,13 +13,15 @@ import { HttpClientModule }    from '@angular/common/http';
 import { BannerComponent } from './shared/components/banner/banner.component';
 import { DataService } from './services/data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SafeUrlPipe } from './shared/pipes/safe-url.pipe';
 // import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavbarComponent,
-      // ProductCardComponent
+      // ProductCardComponent,
+      [SafeUrlPipe]
    ],
    imports: [
       BrowserModule,

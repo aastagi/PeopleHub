@@ -22,12 +22,7 @@ namespace PeopleHUB_API.Controllers
             this.productRepository = productRepository;
             this.mapper = mapper;
         }
-        // GET: api/Product
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+      
 
         //GET: api/Product/5
         [HttpGet, Route("{id}")]
@@ -106,8 +101,9 @@ namespace PeopleHUB_API.Controllers
             var product = mapper.Map<ProductResource, Product>(prod);
             product.CreatedDate = DateTime.Now;
             product.ModifiedDate = DateTime.Now;
-            productRepository.AddProduct(product);
-            return Ok();
+            var insertedProduct=await productRepository.AddProduct(product);
+            var result = mapper.Map<Product, ProductResource>(insertedProduct);
+            return Ok(result);
         }
         [HttpPost, Route("deleteproduct")]
         public async Task<IActionResult> DeleteProduct(int id)
