@@ -16,10 +16,12 @@ namespace Repository
         {
             this.context = dataContext;
         }
-        public void AddProduct(Product product)
+        public async Task<Product> AddProduct(Product product)
         {
             this.context.Add(product);
             this.context.SaveChanges();
+            var productId = product.ProductId;
+            return await this.context.Products.SingleOrDefaultAsync(item => item.ProductId == productId);
         }
 
         public async Task<Product> GetProduct(int productId)

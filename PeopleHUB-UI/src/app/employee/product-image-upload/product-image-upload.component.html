@@ -1,20 +1,27 @@
-
 <div class="container">
   <br>
   <legend>Upload Images</legend>
   <hr>
   <div class="card bg-light">
-
-<div class="form-group">
-  <div class="input-group mb-3">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="inputGroupFile02" name="fileInput"  #fileInput
-       (change)="onFileSelected()">
-      <label class="custom-file-label" for="inputGroupFile02">{{uploadedFile}}</label>
+    <div class="form-group">
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile02" name="fileInput" #fileInput
+            (change)="onFileSelected()">
+          <label class="custom-file-label" for="inputGroupFile02">{{uploadedFile}}</label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text btn btn-primary" (click)="uploadImage()">Upload</span>
+        </div>
+      </div>
     </div>
-    <div class="input-group-append">
-      <span class="input-group-text btn btn-primary"  (click)= "uploadImage()">Upload</span>
+    <!-- Showing the  uploaded Images -->
+    <div class="images__container">
+      <div class="image" *ngFor="let image of productImages">
+        <img  src="src\assets\73f8bb8b-8777-4c77-9a65-ef87281236b5.jpg" alt="{{image.imageOriginalName}}" class="img-thumbnail">
+        {{image.imageOriginalName}}
+      </div>
+
     </div>
   </div>
-</div>
 </div>

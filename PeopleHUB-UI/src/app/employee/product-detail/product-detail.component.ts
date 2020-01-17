@@ -59,7 +59,11 @@ export class ProductDetailComponent implements OnInit {
       this.product.price=productFormValue.price;
       this.product.priceNegotiable=productFormValue.priceNegotiable;
       this.product.specification=productFormValue.specification;
-      this.productService.addProduct(this.product);
+      this.productService.addProduct(this.product).subscribe(data=>{
+        this.productService.tempProduct=data;
+        console.log("Inserted Product ==>")
+        console.log(this.productService.tempProduct);
+      });
       console.log('Product has been added');
 
 
