@@ -1,0 +1,49 @@
+
+.images__container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex: auto;
+}
+
+.image{
+  position: relative;
+}
+
+
+.image .set-thumbnail-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 0px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.image .set-thumbnail-btn:hover {
+  background-color: black;
+}
+
+
+.image .remove-thumnail-btn{
+  position: absolute;
+  top: 10%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background-color: #555;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.image .remove-thumnail-btn:hover {
+  background-color: black;
+}

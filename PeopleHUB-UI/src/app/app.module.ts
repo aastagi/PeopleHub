@@ -27,7 +27,7 @@ import { SafeUrlPipe } from './shared/pipes/safe-url.pipe';
       BrowserModule,
       NgbModule,
       EmployeeModule,
-      AppRoutingModule,RouterModule ,HttpClientModule,FormsModule,ReactiveFormsModule
+      AppRoutingModule,RouterModule ,HttpClientModule,FormsModule,ReactiveFormsModule,
    ],
    providers: [AuthService,EmployeeService,DataService],
    bootstrap: [

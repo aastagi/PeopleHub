@@ -12,16 +12,23 @@
         </div>
         <div class="input-group-append">
           <span class="input-group-text btn btn-primary" (click)="uploadImage()">Upload</span>
+
         </div>
       </div>
     </div>
-    <!-- Showing the  uploaded Images -->
-    <div class="images__container">
-      <div class="image" *ngFor="let image of productImages">
-        <img  src="src\assets\73f8bb8b-8777-4c77-9a65-ef87281236b5.jpg" alt="{{image.imageOriginalName}}" class="img-thumbnail">
-        {{image.imageOriginalName}}
-      </div>
-
-    </div>
   </div>
-</div>
+
+    <!-- Showing the  uploaded Images -->
+     <div class="images__container">
+      <div class="image" *ngFor="let image of productImages">
+        <img   src="{{uploadFolderPath+image.generatedFileName}}" alt="{{image.imageOriginalName}}" class="img-thumbnail product__image"
+        style="width: 16rem; height: 16rem;" >
+        <button class="btn set-thumbnail-btn btn-sm" (click)="onSetAsThumbnailClicked(image)">Set as Thumnail</button>
+        <button class="remove-thumnail-btn" (click)="onImageRemovedClicked(image)">X</button>
+      </div>
+    </div>
+       <!-- <img src="http://192.168.0.102:8887/{{image}}"> -->
+      <!-- <img [attr.src]="sanitizer.bypassSecurityTrustResourceUrl(this.testImage)"> -->
+
+  </div>
+

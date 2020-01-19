@@ -9,10 +9,10 @@ import { ProductDetailComponent } from './employee/product-detail/product-detail
 import { AllProductDetailsComponent } from './employee/all-product-details/all-product-details.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    component: HomeComponent
-  },
+  // {
+  //   path: "",
+  //   component: HomeComponent
+  // },
   {
     path: "home",
     component: HomeComponent

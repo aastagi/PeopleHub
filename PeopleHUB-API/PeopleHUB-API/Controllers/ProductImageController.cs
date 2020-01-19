@@ -25,7 +25,7 @@ namespace PeopleHUB_API.Controllers
             this.mapper = mapper;
             this.productImageRepository = productImageRepository;
         }
-        public string uploadFolderPath = @"C:\Practise\PeopleHub\PeopleHUB-UI\src\assets\";
+        public string uploadFolderPath = @"C:\Practise\PeopleHub\UploadImages";
         private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png" };
         private readonly int MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -40,7 +40,8 @@ namespace PeopleHUB_API.Controllers
             if (file == null) return BadRequest("Null File");
             if (file.Length == 0) return BadRequest("Empty File");
             if (file.Length > MAX_FILE_SIZE) return BadRequest("Max file size exceeded");
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+            var fileName = Guid.NewGuid().ToString("N") + Path.GetExtension(file.FileName);
+            //var fileName = file.FileName;
             if (!ACCEPTED_FILE_TYPES.Any(s => s == Path.GetExtension(file.FileName).ToLower())) return BadRequest("Invalid Fie type");
             var filePath = Path.Combine(uploadFolderPath, fileName);
 
@@ -53,10 +54,11 @@ namespace PeopleHUB_API.Controllers
             productImageResource.ImageOriginalName = file.FileName;
             productImageResource.IsActive = true;
             productImageResource.ProductId = productId;
-
+            
             AddProductImageRecordToDatabase(productImageResource);
-            return Ok();
-
+          
+            return Ok(productImageResource);
+            
         }
 
         [HttpGet]

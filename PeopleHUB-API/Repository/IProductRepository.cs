@@ -9,7 +9,7 @@ namespace Repository
 {
     public interface IProductRepository
     {
-        void AddProduct(Product product);
+        Task<Product> AddProduct(Product product);
         Task<Product> GetProduct(int productId);    
         Task<Product> GetProductByLocationId(int locationId);
         Task<List<Favourite>> GetFavourites(int empId);

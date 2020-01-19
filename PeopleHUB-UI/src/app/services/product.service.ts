@@ -24,7 +24,7 @@ constructor(private http:HttpClient) { }
     {
       var formData = new FormData();
       formData.append('file',file)
-        return this.http.post('https://localhost:44371/api/product/'+productid+'/productImage',formData)
+        return this.http.post<ProductImage>('https://localhost:44371/api/product/'+productid+'/productImage',formData)
     }
 
     getProductImages(productid)
