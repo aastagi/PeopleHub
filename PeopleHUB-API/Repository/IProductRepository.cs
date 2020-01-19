@@ -13,7 +13,7 @@ namespace Repository
         Task<Product> GetProduct(int productId);    
         Task<Product> GetProductByLocationId(int locationId);
         Task<List<Favourite>> GetFavourites(int empId);
-        Task<List<Product>> GetRecentlyAddedProducts(int locationId);
+        Task<List<Product>> GetRecentlyAddedProducts(int? locationId, int? numberOfProduct = 5);
         Task<bool> DeleteFavourite(int productId);
         Task<Product> GetProductBasedOnLocation(int locationId);
         Task<Product> GetProductBasedOnKeyword(string keyword);

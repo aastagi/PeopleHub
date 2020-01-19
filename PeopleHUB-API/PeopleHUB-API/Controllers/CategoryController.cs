@@ -19,6 +19,7 @@ namespace PeopleHUB_API.Controllers
             this.categoryRepository = categoryRepository;
             this.mapper = mapper;
         }
+        [HttpGet]
         public async Task<IEnumerable<CategoryResource>> Get()
         {
             var categories = await categoryRepository.Get();

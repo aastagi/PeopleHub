@@ -39,9 +39,15 @@ namespace Repository
             Product product = await context.Products.SingleOrDefaultAsync(e => e.LocationId == locationId);
             return product;
         }
-        public async Task<List<Product>> GetRecentlyAddedProducts(int locationId)
+        public async Task<List<Product>> GetRecentlyAddedProducts(int? locationId,int? numberOfProduct=5)
         {
-            List<Product> product = await context.Products.OrderByDescending(a => a.ModifiedDate).Where(ap => ap.LocationId == locationId).ToListAsync();
+            List<Product> product = await context.Products
+                                    .Include("ProductImages")
+                                    .OrderByDescending(a => a.ModifiedDate)
+                                    .Where(ap => ap.LocationId == locationId)
+                                    .Take(5)
+                                    .ToListAsync();
+                                    
             return product;
         }
         public async Task<List<Favourite>> GetFavourites(int empId)

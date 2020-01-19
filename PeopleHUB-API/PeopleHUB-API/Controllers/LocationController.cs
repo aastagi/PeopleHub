@@ -22,6 +22,7 @@ namespace PeopleHUB_API.Controllers
             this.locationRepository = locationRepository;
             this.mapper = mapper;
         }
+        [HttpGet]
         public async  Task<IEnumerable<LocationResource>> Get()
         {
             var locations = await locationRepository.Get();

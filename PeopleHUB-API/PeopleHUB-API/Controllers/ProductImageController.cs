@@ -54,8 +54,10 @@ namespace PeopleHUB_API.Controllers
             productImageResource.ImageOriginalName = file.FileName;
             productImageResource.IsActive = true;
             productImageResource.ProductId = productId;
-            
-            AddProductImageRecordToDatabase(productImageResource);
+
+            var result = mapper.Map<ProductImageResource, ProductImage>(productImageResource);
+            productImageRepository.AddProductImage(result);
+          
           
             return Ok(productImageResource);
             
@@ -70,11 +72,6 @@ namespace PeopleHUB_API.Controllers
 
         }
 
-        public void AddProductImageRecordToDatabase(ProductImageResource productImageResource)
-        {
-            var result = mapper.Map<ProductImageResource, ProductImage>(productImageResource);
-            productImageRepository.AddProductImage(result);
-
-        }
+       
     }
 }

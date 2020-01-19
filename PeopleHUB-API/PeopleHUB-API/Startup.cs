@@ -16,6 +16,7 @@ using Microsoft.Extensions.Options;
 using AutoMapper;
 using PeopleHUB_API.Mapping;
 using Repository;
+using Microsoft.OpenApi.Models;
 
 namespace PeopleHUB_API
 {
@@ -44,7 +45,17 @@ namespace PeopleHUB_API
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(SQLConnectionString));
 
+           
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
+          
+
+
 
         }
 
@@ -60,6 +71,15 @@ namespace PeopleHUB_API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
