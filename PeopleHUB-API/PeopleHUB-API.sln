@@ -9,11 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{4A54C4C9-A995-46F7-956B-EDBAFFA426C0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{854AC740-5F59-474B-9527-F3A212427C11}"
-	ProjectSection(SolutionItems) = preProject
-		..\Copy of Task-List.xlsx = ..\Copy of Task-List.xlsx
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{4E42CC46-2042-4253-9261-D1352E11A475}"
 EndProject
 Global
