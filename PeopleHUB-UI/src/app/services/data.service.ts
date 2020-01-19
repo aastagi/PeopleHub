@@ -20,5 +20,16 @@ getCategories()
   return this.http.get<Category[]>('https://localhost:44371/api/category');
 }
 
+getCarousalmages() :string[]
+{
+  var carousalImages= [];
+    carousalImages.push("http://127.0.0.1:8887//banner1.png");
+    carousalImages.push("http://127.0.0.1:8887//banner2.png")
+    carousalImages.push("http://127.0.0.1:8887//banner3.png")
+
+
+  return carousalImages;
+}
+
 
 }

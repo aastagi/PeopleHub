@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  images:string[];
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
+    this.images=this.dataService.getCarousalmages();
   }
 
 }
