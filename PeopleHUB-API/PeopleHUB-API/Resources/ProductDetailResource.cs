@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PeopleHUB_API.Resources
 {
-    public class ProductResource
+    public class ProductDetailResource
     {
         public int ProductId { get; set; }
 
@@ -34,14 +34,6 @@ namespace PeopleHUB_API.Resources
 
         public DateTime ModifiedDate { get; set; }
 
-        public IEnumerable<ProductImage> ProductImages { get; set; }
-
-        public ProductResource()
-        {
-            IEnumerable<ProductImage> ProductImages = new List<ProductImage>();
-        }
-
+       
     }
-
-   
 }

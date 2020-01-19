@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using Data;
 using Data.Models;
 using Microsoft.EntityFrameworkCore;
+using Repository;
 
-namespace Repository
+namespace Persistance
 {
     public class EmployeeRepository : IEmployeeRepository
     {

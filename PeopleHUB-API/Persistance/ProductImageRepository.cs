@@ -6,8 +6,9 @@ using Data.Models;
 using Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Repository;
 
-namespace Repository
+namespace Persistance
 {
     public class ProductImageRepository : IProductImageRepository
     {

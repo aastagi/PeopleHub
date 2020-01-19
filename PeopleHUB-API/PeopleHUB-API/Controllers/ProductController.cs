@@ -54,7 +54,9 @@ namespace PeopleHUB_API.Controllers
         public async Task<IEnumerable<ProductResource>> GetRecentlyAddedProducts(int LocationId)
         {
             var product = await productRepository.GetRecentlyAddedProducts(LocationId);
+            
             var result = mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(product);
+            
             return result;
         }
         [HttpGet, Route("getProductBasedOnLocation")]

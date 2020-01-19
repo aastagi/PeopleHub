@@ -18,7 +18,7 @@ namespace Data.Models
         public DateTime CreateDate { get; set; }
         [Required]
         public Boolean isThumbnailImage { get; set; }
-        public Product Product { get; set; }
+        
 
        
     }

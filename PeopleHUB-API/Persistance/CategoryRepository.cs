@@ -7,7 +7,7 @@ using Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Repository;
 
-namespace Repository
+namespace Persistance
 {
     public class CategoryRepository : ICategoryRepository
     {

@@ -17,6 +17,7 @@ using AutoMapper;
 using PeopleHUB_API.Mapping;
 using Repository;
 using Microsoft.OpenApi.Models;
+using Persistance;
 
 namespace PeopleHUB_API
 {

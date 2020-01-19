@@ -13,18 +13,13 @@ namespace PeopleHUB_API.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<EmployeeResource, Employee>();
-            CreateMap<Employee, EmployeeResource>();
-            CreateMap<ProductResource, Product>();
-            CreateMap<Product, ProductResource>();
-            CreateMap<Location, LocationResource>();
+            CreateMap<EmployeeResource, Employee>().ReverseMap();
+            CreateMap<ProductResource, Product>().ReverseMap();
+            CreateMap<ProductImageResource, ProductImage>().ReverseMap();
+            CreateMap<FavouriteResource, Favourite>().ReverseMap();
+
+            CreateMap<Location, LocationResource>();  
             CreateMap<Category, CategoryResource>();
-            CreateMap<ProductImage, ProductImageResource>();
-            CreateMap<ProductImageResource, ProductImage>();
-            CreateMap<Favourite, FavouriteResource>();
-            CreateMap<FavouriteResource, Favourite>();
-
-
         }
     }
 }
